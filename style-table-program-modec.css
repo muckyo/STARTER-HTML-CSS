@@ -1,0 +1,23 @@
+#embarking {
+    background-color:chocolate;
+    width: 40px;
+}
+
+#disembarking {
+    background-color:chocolate;
+    width: 40px;
+}
+
+* {
+    color:white;
+    border:1px chocolate solid;
+}
+
+.body-table-program-modec {
+    background-color: black;
+}
+
+.table-program-modec {
+    margin-left: auto;
+    margin-right: auto;
+}
