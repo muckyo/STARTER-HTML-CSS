@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!--(tipo de estilização chamando um arquivo .css através da tag <link>)-->
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style-2.css"> -->
+    <!--a leitura de ambos HTML e CSS são feitos de cima pra baixo,
+    então, tudo que vier depois, sobrepõe o que foi especificado antes-->
+
+    <!-- (tipo de estilização usando a tag <style> direto na pág HTML) -->
+    <!-- <style> 
+        h1 {
+            color: purple;
+        }
+        strong {
+            color: red;
+        }
+    </style> -->
+</head>
+<body>
+    <!-- (tipo de estilização inline direto na tag que se quer estilizar) -->
+    <h1 class="title" id="my-title">
+    <!-- nível 5, inline: mais prioritário que estilo por tag <link>-->
+    <!-- <h1 style="color: yellow"> -->
+        Título
+        <strong>alo</strong>
+    </h1>
+</body>
+</html>

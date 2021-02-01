@@ -1,0 +1,56 @@
+<!--
+    2 Lojas
+        Quantos produtos foram produzidos, quantos
+        vendidos e agrupado por nome dos produtos.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela de Vendas</title>
+
+    <link rel="stylesheet" href="exercise-tables.css">
+</head>
+<body>
+    <table>
+        <caption>Produzidos x Vendidos por Loja</caption>
+    
+        <colgroup>
+            <col>
+            <col span="2" id="afonso-pena">
+            <col span="2" id="maria-joao">
+        </colgroup>
+    
+        <thead>
+            <tr>
+                <th rowspan="2"></th>
+                <th colspan="2">Afonso Pena</th>
+                <th colspan="2">Maria João</th>
+            </tr>
+            <tr>
+                <th>Produzidos</th>
+                <th>Vendidos</th>
+                <th>Produzidos</th>
+                <th>Vendidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Vassouras</th>
+                <td>50</td>
+                <td>30</td>
+                <td>20</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <th>Baldes</th>
+                <td>50</td>
+                <td>20</td>
+                <td>20</td>
+                <td>15</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

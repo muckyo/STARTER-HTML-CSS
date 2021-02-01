@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanalei&display=swap');
+    /* estilização usando @import */
+
+
+body h1 strong {
+    color:deepskyblue;
+}
+
+/*classe seguido de ID, mais específico ainda*/
+h1.title#my-title {
+    color:darkslategrey;
+}
+
+/*nível 4, ID: mais prioritários que classes*/
+h1#my-title, 
+#my-title strong {
+    color:darkmagenta;
+}
+
+/*nível 3, classes: mais prioritário que tipos de elementos*/
+h1.title {
+    color:darkkhaki;
+}
+
+/*nível 2, tipos de elementos: mais prioritário que globais*/
+h1 {
+    color: blue;
+    font-family: 'Hanalei', cursive;
+}
+
+/*nível 1, global: menos prioritário*/
+/*!important: passa por cima de toda prioridade e de toda cascata do CSS,
+ mas não é recomendando. Pode ser usado, por ex, quando se usa uma biblioteca
+ secundária de um outro dev e se deseja sobrescrever.*/
+* {
+    color: green !important;
+}
