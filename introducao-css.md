@@ -10,14 +10,16 @@
 
 ## Exemplo:
 
-# HTML:
+``` HTML:
 
 <html>
     <h1>Título da página</h1>
 </html>
+```
 
-## CSS:
+``` CSS:
 
 h1 {
   color: blue;
 }
+```

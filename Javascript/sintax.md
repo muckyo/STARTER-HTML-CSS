@@ -4,6 +4,6 @@
     * Uma boa comunicação necessita de uma boa sintaxe;
     * 82% dos erros para iniciantes em programação é de sintaxe.
 
-'''js
+```JS
     console.log("Bem vindos ao Starter")
-'''
+```

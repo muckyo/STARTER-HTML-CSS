@@ -4,7 +4,7 @@
     * resumido
     * legível
 
-'''css
+```CSS
 {
     /*background properties*/
     
@@ -27,6 +27,7 @@
     /*font shorthand*/
     font: italic 100 large/normal Arial, Helvetica, sans-serif;
 }
+```
 
 ## Detalhes
 

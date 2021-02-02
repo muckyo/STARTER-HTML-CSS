@@ -10,7 +10,7 @@
     - @font-face   /*fontes externas*/
     - @keyframes   /*Animation*/
 
-    '''css
+```CSS
     @import url("https://google.com");
 
     @media (min-width: 500px) {
@@ -24,3 +24,4 @@
     @keyframes nameofanimation {
         /*rules here*/
     }
+```
