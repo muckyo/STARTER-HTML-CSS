@@ -7,3 +7,9 @@
         * var
         * left
         * const
+
+    * O Javascript é uma linguagem fracamente tipada e dinâmica
+        
+        - Variáveis não precisam ter um tipo previamente denifido;
+
+        - Podemos mudar o conteúdo da variável.
