@@ -23,7 +23,7 @@
     * inclusive para definição de valor para a mesma, mesmo antes
     * da declaração.
     */
-    console.log('> existe valor de y antes do bloco? ', y)
+    console.log('> existe valor de x antes do bloco? ', x)
     /* valor da variável 'undefined', pois 'y' existe, 
     * mas não foi definido um valor pra essa variável, visto que
     * Javascript é um linguagem vertical, lida de cima pra baixo,
@@ -39,11 +39,11 @@
     */
 
     {
-         var y = 0
-         console.log('> existe valor de y dentro do bloco? ', y)
+         var x = ["Gustavo", 42, 1.80]
+         console.log('> existe valor de x dentro do bloco? ', x)
     }
 
-    console.log('> existe valor de y depois do bloco? ', y)
+    console.log('> qual o tipo de valor que x recebe na posição [0]? ', typeof x[0])
 
     /* tipo left: 
     * const e let são tipos de declaração locais e só funcionam dentro do
@@ -120,19 +120,35 @@
    * o tipo de declaração const é mais restrito dentro de uma aplicação, 
    * não podendo ter seu valor, muito menos o tipo do seu valor alterado.
    */
-    const c = 20
     /* uma variável do tipo const deve obrigatoriamente receber um valor ao ser iniciada,
     * caso contrário, a execução do código informará que houve erro ao criar uma variável 
     const sem um valor inicial.
     */
-    console.log('> a constante c existe? ', c)
-    console.log('> qual o tipo de valor que essa constante recebeu? ', typeof c)
-    // {
-    //     c = 30
-    //     c = "Texto"
-    // }
+    {
+        const c = 1.2
+        console.log('> a constante c existe? ', c)
+        console.log('> qual o tipo de valor que essa constante recebeu? ', typeof c)
+    //  c = 30
+    //  c = "Texto"
     /* isso dará um erro de designação de valor a uma variável constante, ou seja,
     * não é possível alterar o valor nem o tipo do valor que uma variável constante
     * possui, desde o momento em que ela foi criada.
     */
+    }
+    /*
+    * console.log('> a constante c existe? ', c)
+    * console.log('> qual o tipo de valor que essa constante recebeu? ', typeof c)
+    * da mesma forma que let, variáveis do tipo const não podem ser acessadas fora
+    * do escopo de onde foram criadas. No caso acima, a variável 'const c' foi criada
+    * dentro de um escopo de bloco, ou seja, ela só existe enquanto esse bloco está
+    * sendo executado.
+    */
+    {
+        let PI = parseFloat("3.14")
+        console.log('> O valor de PI é: ', PI)
+        PI = PI * Infinity
+        if (!isFinite (PI)) {
+            console.log('> O tipo do valor que PI recebe é: ', typeof PI)
+        }
+    }
 </script>
