@@ -13,4 +13,5 @@ const animals = [ // Array
 ]
 
 // Acessar valores dentro do Array
-console.log(animals[3].data[0])
+    if(typeof animals === typeof animals[3].data)
+    console.log(`O nome do cachorro é ${animals[3].data[0]}.`)
