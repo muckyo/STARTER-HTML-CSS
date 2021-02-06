@@ -1,0 +1,47 @@
+<script>
+
+    // var é global e poderá funcionar fora de um escopo de bloco
+    // var é global e também local
+    // 'global' é tudo que roda dentro da aplicação Javascript
+    // 'local' é tudo que existe dentro de um escopo específico
+
+    {
+        let x = 0; // aqui, 'x' é uma variável de escopo de bloco
+        console.log(x)// 'x' existe enquanto o bloco estiver sendo executado
+    }
+    //console.log(x)
+    /* variável 'x' não definida, a mesma é 
+    * de escopo de bloco, ou seja, só vai existir enquanto
+    * o bloco estiver sendo executado pela aplicação Javascript.
+    */
+    
+    //y = 1
+    /* segundo o conceito de HOISTING descrito abaixo, 
+    * a seguinte declaração: 'var = y' feita na linha 42,
+    * é içada, como diz a palavra, e sua declaração é de 
+    * escopo global, ou seja, acessível por toda a aplicação,
+    * inclusive para definição de valor para a mesma, mesmo antes
+    * da declaração.
+    */
+    console.log('> existe valor de y antes do bloco? ', y)
+    /* valor da variável 'undefined', pois 'y' existe, 
+    * mas não foi definido um valor pra essa variável, visto que
+    * Javascript é um linguagem vertical, lida de cima pra baixo,
+    * porém 'var' é um tipo de declaração global, 
+    * disponível por todo escopo da aplicação, ou seja,
+    * no momento em que a aplicação exectua a linha de código acima,
+    * 'var = y' já existe no escopo, porém sem valor atribuído,
+    * sem valor definido a ela, ou seja, é desta maneira:
+    * var = y
+    * console.log('> existe y antes do bloco? ', y) [y = undefined]
+    * y = 0
+    * O conceito disto chama-se HOISTING
+    */
+
+    {
+         var y = 0
+         console.log('> existe valor de y dentro do bloco? ', y)
+    }
+
+    console.log('> existe valor de y depois do bloco? ', y)
+</script>
