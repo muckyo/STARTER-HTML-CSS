@@ -1,10 +1,10 @@
 <script>
-
-    // var é global e poderá funcionar fora de um escopo de bloco
-    // var é global e também local
-    // 'global' é tudo que roda dentro da aplicação Javascript
-    // 'local' é tudo que existe dentro de um escopo específico
-
+    /* tipo var:
+    * var é global e poderá funcionar fora de um escopo de bloco
+    * var é global e também local
+    * 'global' é tudo que roda dentro da aplicação Javascript
+    * 'local' é tudo que existe dentro de um escopo específico
+    */
     {
         let x = 0; // aqui, 'x' é uma variável de escopo de bloco
         console.log(x)// 'x' existe enquanto o bloco estiver sendo executado
@@ -19,7 +19,7 @@
     /* segundo o conceito de HOISTING descrito abaixo, 
     * a seguinte declaração: 'var = y' feita na linha 42,
     * é içada, como diz a palavra, e sua declaração é de 
-    * escopo global, ou seja, acessível por toda a aplicação,
+    * escopo global, ou seja, acessível por todo o escopo da aplicação,
     * inclusive para definição de valor para a mesma, mesmo antes
     * da declaração.
     */
@@ -29,9 +29,9 @@
     * Javascript é um linguagem vertical, lida de cima pra baixo,
     * porém 'var' é um tipo de declaração global, 
     * disponível por todo escopo da aplicação, ou seja,
-    * no momento em que a aplicação exectua a linha de código acima,
-    * 'var = y' já existe no escopo, porém sem valor atribuído,
-    * sem valor definido a ela, ou seja, é desta maneira:
+    * no momento em que a aplicação executa a linha de código acima,
+    * 'var = y' já existe no escopo da aplicação, porém sem valor atribuído,
+    * sem valor definido a ela, ou seja, funciona desta maneira:
     * var = y
     * console.log('> existe y antes do bloco? ', y) [y = undefined]
     * y = 0
@@ -44,4 +44,95 @@
     }
 
     console.log('> existe valor de y depois do bloco? ', y)
+
+    /* tipo left: 
+    * const e let são tipos de declaração locais e só funcionam dentro do
+    * escopo onde foram criadas, sendo assim, se forem criadas dentro de 
+    * um determinado bloco, não podem ser acessadas fora do escopo desse bloco
+    * onde foram criadas, as outras partes do código da aplicação não possuem 
+    * acesso a elas.
+    */
+
+    // console.log('> existe valor de z antes do bloco? ', z)
+    /* 'z' não existe, ou seja não foi definida, pois a sua declaração
+    * foi feita no escopo abaixo, acessada somente dentro do 
+    * escopo de bloco onde foi criada.
+    */
+
+   // let z = 5;
+   /* declaração de variável do tipo let fora de escopo de bloco
+   * é possível, e também é acessível dentro de um escopo de bloco,
+   * inclusive, podendo ter seu valor modificado, alteração esta,
+   * visível a todo escopo global da aplicação.
+   */
+   {
+       let z = 50;
+       console.log('> existe valor de z dentro do bloco? ', z)
+       z = "Texto"
+       console.log('> consigo mudar o tipo do valor da variável? ',typeof z)
+       /* OBS1.: O escopo de bloco sempre irá buscar a declaração de uma determinada
+        * variável respeitando a cadeia de declaração dentro da aplicação, ou seja,
+        * se uma variável do tipo let de mesmo nome como 'z' foi declarada dentro do 
+        * bloco, ela respeitará essa declaração, mesmo que aja uma igual declaração fora 
+        * do bloco, mas se a execução do bloco não encontrar
+        * a declaração dentro de si mesmo, a execução do código irá subir de dentro de onde
+        *  está inserido, seja outro bloco ou mesmo o escopo global da aplicação, até achar a 
+        * declaração da variável em questão.
+        * 
+        * OBS2.: A declaração de uma variável do tipo let e const (locais) não pode vir depois
+        * de sua definição de valor, independente do escopo ser de bloco ou da aplicação,
+        * como por exemplo:
+        * {
+            * console.log(z)
+            * let z = 50
+        * }
+        * isso dará um erro de inicialização da variável 'z', que não ocorreria
+        * se a variável fosse do tipo var (global), tipo esse que possui uma forma
+        * de declaração e disponibilidade globais de suas variáveis por todo escopo
+        * de bloco e também da aplicação, por exemplo:
+        * {
+            * console.log(z)
+            * var z = 50
+        * }
+        * sendo assim, é totalmente viável, pois a variável agora é do tipo var (global).
+        * 
+        * Os tipos let e const foram criados para serem locais, sendo mais usados 
+        * dentro de um escopo de bloco, principalmente por razões de segurança e
+        * integridade do código da aplicação.
+        */
+   }
+
+   // console.log('> existe valor de z depois do bloco? ', z)
+   /* 'z' novamente não existe aqui, também porque não foi definida, visto que 
+   * a declaração acima foi feita dentro do bloco, ou seja, só existiu enquanto
+   * o escopo do bloco acima foi executado, após isso, a variável 'z' deixa de 
+   * existir fora bloco de onde foi criada.
+   * 
+   * OBS1.: Existe uma condição para esse tipo de declaração let, 
+   * se a declaração ocorrer fora de um escopo de bloco, e após isso
+   * dentro de um determinado bloco, for atribuído outro valor a esssa mesma variável,
+   * quando a mesma for acessada novamente, fora do bloco, seu valor terá sido modificado,
+   * e o novo valor será visível fora do bloco, pela aplicação, mas somente se sua declaração
+   * ocorrer fora de escopo de bloco.
+   */
+
+   /* tipo const:
+   * o tipo de declaração const é mais restrito dentro de uma aplicação, 
+   * não podendo ter seu valor, muito menos o tipo do seu valor alterado.
+   */
+    const c = 20
+    /* uma variável do tipo const deve obrigatoriamente receber um valor ao ser iniciada,
+    * caso contrário, a execução do código informará que houve erro ao criar uma variável 
+    const sem um valor inicial.
+    */
+    console.log('> a constante c existe? ', c)
+    console.log('> qual o tipo de valor que essa constante recebeu? ', typeof c)
+    // {
+    //     c = 30
+    //     c = "Texto"
+    // }
+    /* isso dará um erro de designação de valor a uma variável constante, ou seja,
+    * não é possível alterar o valor nem o tipo do valor que uma variável constante
+    * possui, desde o momento em que ela foi criada.
+    */
 </script>
