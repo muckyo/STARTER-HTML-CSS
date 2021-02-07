@@ -1,9 +1,9 @@
 var nameOfPerson = 'Orlando';
 
-function nameOf() {
+function NameOf() {
     return nameOfPerson;
 }
-    nameOf()
+    NameOf()
 
-document.body.innerHTML = "<h1> Meu nome é: " + nameOf() +
+document.body.innerHTML = "<h1> Meu nome é: " + NameOf() +
     "</h1>";
