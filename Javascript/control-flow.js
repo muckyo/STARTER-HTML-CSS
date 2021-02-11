@@ -72,7 +72,7 @@
 {
     console.log('\nThrow:')
     // throw (disparar, lançar)
-    function sayMyName(name = '') {
+    function SayMyName(name = '') {
         if(name === '') {
             throw 'Nome é obrigatório'
         }
@@ -82,7 +82,7 @@
 
     // try & catch
     try {
-        sayMyName('')
+        SayMyName('')
     } catch(e) {
         console.log(e)
     }
