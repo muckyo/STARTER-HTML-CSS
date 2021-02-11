@@ -13,11 +13,12 @@
     // Expressions = são quaisquer linhas de código, exemplo:
     let number = 1;
 
-    /* Operators:
-    * 
-    * Binary:
-    * Existem vários tipos de operadores, como por exemplo, operador binário de soma +,
-    * chama-se binário, pois necessita de dois valores entre o operador para que ele funcione:
+    /**
+     * Operators:
+     *  
+     * Binary:
+     * Existem vários tipos de operadores, como por exemplo, operador binário de soma +,
+     * chama-se binário, pois necessita de dois valores entre o operador para que ele funcione:
     */
     console.log(number + 1);
 
@@ -119,9 +120,10 @@
 
 {
     console.log('\nOperator ( ):')
-    /* Grouping Operator ( )
-    * dá importância a execução de determinado trecho,
-    * agrupando expressões matemáticas, por exemplo:
+    /**
+     * Grouping Operator ( )
+     * dá importância a execução de determinado trecho,
+     * agrupando expressões matemáticas, por exemplo:
     */
     let total = (2 + 3) * 5
     console.log(total)
@@ -211,4 +213,93 @@
     x = 2
     x **= 2
     console.log(x)
+}
+
+{
+    console.log('\nLogical Operators:');
+    /** Logical Operators:
+     * 
+     *  - 2 valores booleanos, que quando verificados,
+     * resultará em verdadeiro ou falso
+    */
+    let pao = true
+    let queijo = false
+    
+    // AND &&
+    // as duas condições precisam ser verdadeiras para que a resposta seja 'true':
+    console.log(pao && queijo)
+
+    // OR ||
+    // basta apenas 1 das condições ser verdadeira para que a resposta seja 'true':
+    console.log(pao || queijo)
+
+    // NOT !
+    // operador de negação, nega o valor:
+    console.log(!pao)
+    console.log(!queijo)
+}
+
+{
+    console.log('\nConditional Operator:')
+    /**
+     * Conditional Operator (Ternary ou Ternário)
+     * Dependendo da condição, nós receberemos valores diferentes
+     * 
+     * Condição então valor 1 se não valor 2
+     * condition ? value1 : value2
+     * 
+     * Exemplos:
+     */
+    // Café da manhã top
+    let pao = false
+    let queijo = true
+    const niceBreakfast = pao || queijo ? 'Café Top' : 'Café Ruim'
+    console.log(niceBreakfast)
+
+    // Maior de 18 anos de idade
+    let age = 4
+    const canDrive = age >= 18 ? 'can drive' : "can't drive"
+    console.log(canDrive)
+}
+
+{
+    console.log('\nString Operator:')
+    /**
+     * String Operator (Operador de String):
+     * 
+     * comparison (comparação)
+    */
+    console.log ('a' == 'a')
+
+    // concatenation (concatenação)
+    // Retorna a união de duas Strings
+    let alpha = 'alpha'
+    alpha += 'bet'
+    console.log(alpha + 's' + 1234)
+}
+
+{
+    console.log('\nOperator Precedence:')
+    /**
+     * Operator Precedence:
+     *  - Precedência de Operadores
+     * 
+     * grouping                      ()
+     * negação e incremento          ! ++ --
+     * multiplicação e divisão       * /
+     * adição e subtração            + -
+     * relacional                    < <= > >=
+     * igualdade                     == != === !==
+     * AND                           &&
+     * OR                            ||
+     * conditional                   ?:
+     * assigment (atribuição)        = += -= *=
+     */
+    console.log( (2 + 5) * 10) // 70
+    console.log(2 + 5 * 10) // 52
+    console.log(3 > 2 > 1) // true > 1
+    console.log(3 > 2 && 2 > 1) // true && true
+    console.log(3 > 2 || 4 < 2) // true || false
+    let number = 1
+    console.log(number *= 10) // number = 1 * 10
 }
