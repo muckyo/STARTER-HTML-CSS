@@ -232,12 +232,20 @@
                                         title: 'Call Me By Your Name',
                                         author: 'Autor Desconhecido',
                                 },
+                                {
+                                        title: 'Jogos Vorazes',
+                                        author: 'Suzanne Collins',
+                                },
+                                {
+                                        title: 'A Cantiga dos Pássaros e das Serpentes',
+                                        author: 'suzanne collins',
+                                },
                         ],
                 },
          ];
 
          function CountCategorys() {
-                 console.log(`Existe atualmente um total de ${booksByCategory.length} Categorias de Livros.\n`);
+                 console.log(`Existe atualmente ${booksByCategory.length} Categorias de Livros.\n`);
                  for(let i = 0; i < booksByCategory.length; i++) {
                         console.log(`Categoria ${i+1}: ${booksByCategory[i].category}, ${booksByCategory[i].books.length} livros.`)       
                  }
@@ -256,19 +264,32 @@
                  console.log(`\nExiste atualmente um total de ${totalAuthors.length} Autores.`);
          }
 
-         function ShowBooksFromAuthor(author) {
-                let booksFromAuthor = 0;
+         function ShowBooksFromAugustoCury() {
+                console.log(`\nLivros do autor "Augusto Cury":`);
+                
                 for(let i = 0; i < booksByCategory.length; i++) {
                         for(let j = 0; j < booksByCategory[i].books.length; j++) {
-                                if(booksByCategory[i].books[j].author.toUpperCase().includes(author.toUpperCase())) {
-                                        booksFromAuthor++;
+                                if(booksByCategory[i].books[j].author.toUpperCase().includes('Augusto Cury'.toUpperCase())) {
+                                        console.log(`${booksByCategory[i].books[j].title}`);
                                 }
                         }
                 }
-                console.log(`\nExiste atualmente ${booksFromAuthor} Livros de ${author}.`);
+         }
+
+         function ShowBooksFromAuthor(author) {
+                console.log(`\nLivros do(a) autor(a) "${author}":`);
+                
+                for(let i = 0; i < booksByCategory.length; i++) {
+                        for(let j = 0; j < booksByCategory[i].books.length; j++) {
+                                if(booksByCategory[i].books[j].author.toUpperCase().includes(author.toUpperCase())) {
+                                        console.log(`${booksByCategory[i].books[j].title}`);
+                                }
+                        }
+                }
          }
 
          CountCategorys();
          CountAuthors();
-         ShowBooksFromAuthor('CURY');
+         ShowBooksFromAugustoCury();
+         ShowBooksFromAuthor('Suzanne Collins');
 }
