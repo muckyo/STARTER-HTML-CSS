@@ -73,23 +73,22 @@
          * saldo positivo ou negativo, seguido do valor do saldo.
          */
         let familyData = {
-                recipes: [8000.00, 5000.00, 1000.00],
+                recipes: [8000.00, 5000.00, 1600.00],
                 expenses: [2800.00, 200.00, 80.00, 120.00, 400.00, 11000.00],
                 totalRecipes: 0,
                 totalExpenses: 0,
         }
 
-        familyData.totalRecipes = calcTotalRecipes(familyData);
-        familyData.totalExpenses = calcTotalExpenses(familyData);
-        console.log(calcTotalBalance(familyData.totalRecipes, familyData.totalExpenses));
+        // familyData.totalRecipes = CalcTotalRecipes(familyData.recipes);
+        // familyData.totalExpenses = CalcTotalExpenses(familyData.expenses);
+        // console.log(CalcTotalBalance(familyData.totalRecipes, familyData.totalExpenses));
 
         // função para calcular total da receita da família.
-        function calcTotalRecipes(familyData) {
+        function CalcTotalRecipes(familyRecipes) {
                 let totalRecipes = 0;
-                let lengthRecipes = familyData.recipes.length;
                 
-                for(let i = 0; i < lengthRecipes; i++) {
-                        totalRecipes += familyData.recipes[i];
+                for(let i = 0; i < familyRecipes.length; i++) {
+                        totalRecipes += familyRecipes[i];
                 }
                 console.log(`O total da Receita da família é de: R$${totalRecipes.toFixed(2).replace('.', ',')}.`)
 
@@ -97,12 +96,11 @@
         }
 
         // função para calcular total das despesas da família.
-        function calcTotalExpenses(familyData) {
+        function CalcTotalExpenses(familyExpenses) {
                 let totalExpenses = 0;
-                let lengthExpenses = familyData.expenses.length;
 
-                for(let i = 0; i < lengthExpenses; i++) {
-                        totalExpenses += familyData.expenses[i];
+                for(let i = 0; i < familyExpenses.length; i++) {
+                        totalExpenses += familyExpenses[i];
                 }
                 console.log(`O total das Despesas da família é de: R$${totalExpenses.toFixed(2).replace('.', ',')}.`)
 
@@ -110,7 +108,7 @@
         }
 
         // função que irá calcular o saldo total da família, e se está com saldo positivo ou negativo.
-        function calcTotalBalance(totalRecipes, totalExpenses) {
+        function CalcTotalBalance(totalRecipes, totalExpenses) {
                 let totalBalance = totalRecipes - totalExpenses;
 
                 if(totalBalance < 0) {
@@ -119,4 +117,158 @@
                         return `O Saldo Final da família é positivo: R$${totalBalance}.`;
                 }
         }
+}
+
+// Question 3:
+{
+        /**
+         *      ### Celsius em Fahrenheit
+         * 
+         *              Crie uma função que receba uma String em Celsius ou Fahrenheit 
+         *              e faça a transformação de uma unidade para outra:
+         * 
+         *                      C = (F - 32) * 5/9
+         *                      F = 32 + C * 9/5
+        */
+       let temperature = '10C';
+
+       function ConvertTemperature(temperature) {  
+               let arrayTemperature = Array.from(temperature);
+               let celsius = '';
+               let fahrenheit = '';
+               if(temperature.toUpperCase().includes('C')) {
+                       for(let i = 0; i < arrayTemperature.length; i++) {
+                               if(!isNaN(Number(arrayTemperature[i]))) {
+                                        celsius += arrayTemperature[i];
+                               }
+                       }
+                       celsius = Number(celsius);
+                       fahrenheit = 32 + celsius * 9/5;
+                       console.log(`A temperatura de ${celsius}º Celsius é: ${fahrenheit.toFixed(0)}º Fahrenheit.`)
+               }else if(temperature.toUpperCase().includes('F')) {
+                       for(let i = 0; i < arrayTemperature.length; i++) {
+                               if(!isNaN(Number(arrayTemperature[i]))) {
+                                       fahrenheit += arrayTemperature[i];
+                               }
+                       }
+                       fahrenheit = Number(fahrenheit);
+                       celsius = (fahrenheit - 32) * 5/9;
+                       console.log(`A temperatura de ${fahrenheit}º Fahrenheit é: ${celsius.toFixed(0)}º Celsius.`)
+                }else if(!temperature.toUpperCase().includes('C') && !temperature.toUpperCase().includes('F')) {
+                        throw new Error('Temperatura não identificada!')
+                }
+       }
+
+       try {
+               // ConvertTemperature('10C');
+               // ConvertTemperature('50F');
+               // ConvertTemperature('10D');
+        }catch(error) {
+                console.log(error.message);
+        }
+}
+
+// Question 4:
+{
+        /**
+         * ### Buscando e contando dados em arrays
+         * 
+         *      Baseado no Array de Livros por Categoria abaixo, faça os seguintes desafios:
+         * 
+         *              * Contar o número de categorias e o número de livros em cada categoria;
+         *              * Contar o número de autores;
+         *              * Mostrar livros do autor Augusto Cury;
+         *              * Transformar a função acima em uma função que irá receber o nome do autor 
+         *                      e devolver os livros desse autor.
+         */
+
+         const booksByCategory = [
+                 {
+                        category: 'Riqueza',
+                        books: [
+                                {
+                                        title: 'Os segredos da mente milionária',
+                                        author: 'T. Harv Eker',
+                                },
+                                {
+                                        title: 'O homem mais rico da Babilônia',
+                                        author: 'George S. Clason',
+                                },
+                                {
+                                        title: 'Pai rico, pai pobre',
+                                        author: 'Robert T. Kiyosaki e Sharon L. Lenchter',
+                                },
+                        ],
+                },
+                {
+                        category: 'Inteligência Artificial',
+                        books: [
+                                {
+                                        title: 'Você é Insubstituível',
+                                        author: 'Augusto Cury',
+                                },
+                                {
+                                        title: 'Ansiedade - Como enfrentar o mal do século',
+                                        author: 'Augusto Cury',
+                                },
+                                {
+                                        title: 'Os 7 hábitos das pessoas altamente eficazes',
+                                        author: 'Stephen R. Covey',
+                                },
+                                {
+                                        title: 'Avanços Tecnológicos de IA',
+                                        author: 'Autor Desconhecido',
+                                },
+                                {
+                                        title: 'outro livro',
+                                        author: 'Augusto Cury',
+                                },
+                        ],
+                },
+                {
+                        category: 'Romance',
+                        books: [
+                                {
+                                        title: 'Call Me By Your Name',
+                                        author: 'Autor Desconhecido',
+                                },
+                        ],
+                },
+         ];
+
+         function CountCategorys() {
+                 console.log(`Existe atualmente um total de ${booksByCategory.length} Categorias de Livros.\n`);
+                 for(let i = 0; i < booksByCategory.length; i++) {
+                        console.log(`Categoria ${i+1}: ${booksByCategory[i].category}, ${booksByCategory[i].books.length} livros.`)       
+                 }
+         }
+
+         function CountAuthors() {
+                 let totalAuthors = [];
+
+                 for(let i = 0; i < booksByCategory.length; i++) {
+                        for(let j = 0; j < booksByCategory[i].books.length; j++) {
+                                if(totalAuthors.indexOf(booksByCategory[i].books[j].author.toUpperCase()) == -1) {
+                                        totalAuthors.push(booksByCategory[i].books[j].author.toUpperCase());
+                                }
+                        }
+                 }
+                 console.log(`\nExiste atualmente um total de ${totalAuthors.length} Autores.`);
+         }
+
+         function ShowBooksFromAuthor(author) {
+                let booksFromAuthor = 0;
+                for(let i = 0; i < booksByCategory.length; i++) {
+                        for(let j = 0; j < booksByCategory[i].books.length; j++) {
+                                if(booksByCategory[i].books[j].author.toUpperCase().includes(author.toUpperCase())) {
+                                        booksFromAuthor++;
+                                }
+                        }
+                }
+                console.log(`\nExiste atualmente ${booksFromAuthor} Livros de ${author}.`);
+         }
+
+         CountCategorys();
+         CountAuthors();
+         ShowBooksFromAuthor('CURY');
 }
